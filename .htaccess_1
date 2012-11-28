@@ -1,5 +1,5 @@
 RewriteEngine On
-RewriteBase /ci-tutorial/
+RewriteBase /ci-tutorial
  
 ### Canonicalize codeigniter URLs
  
