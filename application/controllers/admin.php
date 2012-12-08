@@ -21,10 +21,11 @@ class Admin extends CI_Controller {
         $this->user_model->create($email, $password);
     }
     
-    public function delete_user()
+    public function delete_user($user_id)
     {
         $this->load->model('user_model');
-        $this->user_model->delete($user_id);
+        echo $this->user_model->delete($user_id);
+        
     }
 
 }

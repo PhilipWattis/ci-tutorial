@@ -17,7 +17,7 @@ Admin
 <tr>
     <td><?=$_value->user_id?></td>
     <td><?=$_value->email?></td>
-    <td><a href="#">Delete</a></td>
+    <td><a href="<?=site_url("admin/delete_user/{$_value->user_id}")?>">Delete</a></td>
 </tr>
 <?php endforeach;?>
 </tbody>
