@@ -22,11 +22,11 @@ class Home extends CI_Controller {
         $password = $this->input->post('password');
         
         $this->load->model('user_model');
-        $result = $this->user_model->login($email, $password);
+        $result = $this->user_model->login('user', $email, $password);
         
         if ($result == true) {
             echo 'We do login data here!';
         }
-        
     }
+    
 }

@@ -6,4 +6,4 @@
 </head>
 <body>
     
-<h1>Public Area</h1>
+<h1>Admin Panel</h1>

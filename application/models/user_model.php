@@ -26,9 +26,19 @@ class User_model extends CI_Model
         return $query->result();
     }
     
-    public function login($email, $password)
+    /**
+     * Attempts to validate and log a user in
+     * 
+     * @param string $type admin or user
+     * @param string $email
+     * @param string $password do not encrypt
+     * 
+     * @return array
+     */
+    public function login($type, $email, $password)
     {
         $query = $this->db->get_where('user', [
+            'type' => $type,
             'email' => $email,
             'password' => sha1($password . HASH_KEY)
         ]);
