@@ -10,8 +10,13 @@ class Dashboard extends CI_Controller {
         
         // Get the last segment in the URI, and only redirect out of the
         // protected area if it is NOT the login form
+        $section = $this->uri->segment_array();
+        array_shift($section);
+        
         $section = end($this->uri->segment_array());
-        if ($section != 'login' && $this->session->userdata('user_id') == false) {
+        if ($section != 'login' && $section != 'submit' 
+                && $this->session->userdata('user_id') == false
+                ) {
             redirect(site_url('dashboard/login'));
         }
     }
@@ -41,10 +46,40 @@ class Dashboard extends CI_Controller {
         $result = $this->user_model->login('user', $email, $password);
         
         if ($result == true) {
-            echo 'We do login data here!';
+            $this->session->set_userdata('user_id', 1);
+            redirect(site_url('dashboard/home'));
+        } else {
+            redirect(site_url('dashboard/login'));
         }
     }
     
     // ------------------------------------------------------------------------
+
+    public function home()
+    {
+        $this->load->view('dashboard/inc/header');
+        $this->load->view('dashboard/home');
+        $this->load->view('dashboard/inc/footer');
+    }
     
+    
+    // ------------------------------------------------------------------------
+
+    public function account()
+    {
+        $this->load->view('dashboard/inc/header');
+        $this->load->view('dashboard/account');
+        $this->load->view('dashboard/inc/footer');
+    }
+    
+    
+    // ------------------------------------------------------------------------
+
+    public function logout()
+    {
+        $this->session->sess_destroy();
+        redirect(site_url('dashboard/login'));
+    }
+    
+    // ------------------------------------------------------------------------
 }

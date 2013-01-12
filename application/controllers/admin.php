@@ -10,13 +10,8 @@ class Admin extends CI_Controller {
         
         // Get the last segment in the URI, and only redirect out of the
         // protected area if it is NOT the login form
-        
         $section = $this->uri->segment_array();
         array_shift($section);
-        
-        if ($section[0] == 'login' || $section[0] == 'login' && $section[1] == 'submit') {
-            
-        }
         
         $section = end($this->uri->segment_array());
         if ($section != 'login' && $section != 'submit' 
@@ -36,13 +31,13 @@ class Admin extends CI_Controller {
     
     // ------------------------------------------------------------------------
     
-    public function dashboard()
+    public function home()
     {
         $this->load->model('user_model');
         $users = $this->user_model->get();
         
         $this->load->view('admin/inc/header');
-        $this->load->view('admin/admin', ['users' => $users]);
+        $this->load->view('admin/home', ['users' => $users]);
         $this->load->view('admin/inc/footer');
     }
     
@@ -66,7 +61,7 @@ class Admin extends CI_Controller {
         if ($result == true) {
             $this->session->set_userdata('user_id', 1);
             $this->session->set_userdata('is_admin', 1);
-            redirect(site_url('admin/dashboard'));
+            redirect(site_url('admin/home'));
         } else {
             redirect(site_url('admin/login'));
         }
