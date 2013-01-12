@@ -1,4 +1,4 @@
-Login
+<h1>Login</h1>
 
 <form action="<?=site_url('admin/login/submit')?>" method="post">
     Email: <input type="text" name="email" />

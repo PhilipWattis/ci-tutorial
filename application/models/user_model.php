@@ -3,10 +3,14 @@
 class User_model extends CI_Model
 {
     
+    // ------------------------------------------------------------------------
+    
     public function __construct() 
     {
         parent::__construct();
     }
+    
+    // ------------------------------------------------------------------------
     
     /**
      * Get one or many users
@@ -25,6 +29,8 @@ class User_model extends CI_Model
         
         return $query->result();
     }
+    
+    // ------------------------------------------------------------------------
     
     /**
      * Attempts to validate and log a user in
@@ -46,13 +52,12 @@ class User_model extends CI_Model
         return $query->result();
     }
     
+    // ------------------------------------------------------------------------
+    
     public function create($email, $password)
     {
-        // Make sure the email is not taken
-        $this->db->where('email', $email);
-        $duplicate = $this->db->count_all_results('user');
-        
-        if ($duplicate > 0) {
+        $this->form_validation->set_rules('email', 'Email', 'is_unique[user.email]');
+        if ($this->form_validation->run() == false) {
             return false;
         }
 
@@ -64,11 +69,15 @@ class User_model extends CI_Model
         return $result;
     }
     
+    // ------------------------------------------------------------------------
+    
     public function delete($user_id)
     {
         $this->db->where(['user_id' => $user_id]);
         $result = $this->db->delete('user');
         return $result;
     }
+    
+    // ------------------------------------------------------------------------
     
 }

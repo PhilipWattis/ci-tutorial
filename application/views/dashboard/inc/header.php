@@ -6,8 +6,8 @@
 </head>
 <body>
     
-<h1>Admin Panel</h1>
+<h1>User Dashboard</h1>
 
 <nav>
-    Manage Users | <a href="<?=site_url('admin/logout')?>">Logout</a>
+    Dashboard | My Account | Logout
 </nav>

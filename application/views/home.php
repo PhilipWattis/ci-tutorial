@@ -1,4 +1,21 @@
-Home
 
-<a href="<?=site_url('home/login')?>">Login</a>
-<a href="<?=site_url('home/login')?>">Login Admin</a>
+<p>
+    Text Text Text Text Text Text Text Text Text Text Text Text Text 
+    Text Text Text Text Text Text Text Text Text Text Text Text Text 
+    Text Text Text Text Text Text Text Text Text Text Text Text Text 
+    Text Text Text Text Text Text Text Text Text Text Text Text Text 
+</p>
+
+<p>
+    Text Text Text Text Text Text Text Text Text Text Text Text Text 
+    Text Text Text Text Text Text Text Text Text Text Text Text Text 
+    Text Text Text Text Text Text Text Text Text Text Text Text Text 
+    Text Text Text Text Text Text Text Text Text Text Text Text Text 
+</p>
+
+<p>
+    Text Text Text Text Text Text Text Text Text Text Text Text Text 
+    Text Text Text Text Text Text Text Text Text Text Text Text Text 
+    Text Text Text Text Text Text Text Text Text Text Text Text Text 
+    Text Text Text Text Text Text Text Text Text Text Text Text Text 
+</p>

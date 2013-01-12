@@ -1,4 +1,4 @@
-Admin
+<h1>Create New User</h1>
 
 <form action="<?=site_url('admin/create_user')?>" method="post">
     Email: <input type="text" name="email" />
