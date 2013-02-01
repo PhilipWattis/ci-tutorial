@@ -1,3 +1,5 @@
+<?=$header?>
+
 Login
 
 <form action="<?=site_url('dashboard/login/submit')?>" method="post">
@@ -5,3 +7,5 @@ Login
     Password: <input type="password" name="password" />
     <input type="submit" />
 </form>
+
+<?=$footer?>
